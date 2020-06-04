@@ -10,14 +10,20 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import { GerichteComponent } from './gerichte/gerichte.component';
 import { GerichteItemComponent } from './gerichte/gerichte-item/gerichte-item.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { AboutComponent } from './about/about.component';
+import {AppRoutingModule} from './app-routing.module';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
     AppComponent,
     GerichteComponent,
     GerichteItemComponent,
-    NavbarComponent
+    AboutComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +32,11 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatIconModule,
     MatCardModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    AppRoutingModule,
+    LayoutModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
