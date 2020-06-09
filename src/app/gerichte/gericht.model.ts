@@ -1,12 +1,15 @@
 export class Gericht {
 
   public name: string;
-  public preis: number;
-  public beschreibung: string;
+  public category: string;
+  public prices : number[];
+  public notes: string[]
 
-  constructor(name: string, preis: number, beschreibung: string) {
+
+  constructor(name: string, category: string, prices: number[], notes: string[]) {
     this.name = name;
-    this.preis = preis;
-    this.beschreibung = beschreibung;
+    this.category = category;
+    this.prices = prices;
+    this.notes = notes;
   }
 }

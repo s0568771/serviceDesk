@@ -21,3 +21,15 @@
 .spacer{
   flex: 1 1 auto;
 }
+mat-toolbar a {
+  display: inline-block;
+  color: white;
+}
+mat-list:hover {
+  cursor: pointer;
+}
+.active_route {
+  text-decoration: underline;
+}
+
+

@@ -25,8 +25,10 @@
       <span>Mensa Hub</span>
       <span class="spacer"></span>
       <span *ngIf="!(isHandset$ | async)">
-      <span class="px-3" mat-list-item routerLink="/gerichte">Gerichte</span>
-      <span class="px-3" mat-list-item routerLink="/about">About</span></span>
+          <a routerLinkActive="active_route">Mensen</a>
+          <a routerLink="/gerichte" routerLinkActive="active_route" class="px-4">Gerichte</a>
+          <a routerLink="/about" routerLinkActive="active_route">About</a>
+      </span>
     </mat-toolbar>
     <ng-content></ng-content>
   </mat-sidenav-content>

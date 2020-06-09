@@ -4,16 +4,20 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class GerichtService {
 
-  private gerichte: Gericht[] = [
-    new Gericht(
-      'Tasty Schnitzel', 1, 'Info wie geil das schmeckt',),
-    new Gericht('A super-tasty Schnitzel - just awesome!', 3.42, 'Schmeckt noch geiler!'),
-    new Gericht('Salat',1.20, 'Von Salat schrumpft der Bizeps!')
-  ];
+  private gerichte: Gericht[] = [new Gericht('Salatteller Spezial mit gekochtem Ei und Kidneybohnen',
+    'Vorspeisen', [3.45, 3.8, null, 4.15],
+    ['Eier',
+      'vegetarisch',
+      'grün (Ampel)'
+    ])];
 
+  getGerichte() {
+    return this.gerichte.slice();
+  }
 
-getGericht() {
-  return this.gerichte.slice();
-}
+  setGerichte(recipes: Gericht[]) {
+    this.gerichte = recipes;
+    console.log(this.gerichte)
+  }
 }
 
