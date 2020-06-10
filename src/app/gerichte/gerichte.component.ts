@@ -2,6 +2,7 @@ import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Gericht} from './gericht.model';
 import {GerichtService} from './gericht.service';
 import {DataStorageService} from './data-storage.service';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-gerichte',
@@ -10,21 +11,27 @@ import {DataStorageService} from './data-storage.service';
   providers: [GerichtService]
 })
 export class GerichteComponent implements OnInit {
-  gerichte: Gericht[];
+  public gerichte: Gericht[] = [];
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes['gerichte'].currentValue);
-  }
+
   constructor(private gerichtService: GerichtService, private dataStorageService: DataStorageService) {
   }
 
   ngOnInit() {
-    this.gerichte = this.gerichtService.getGerichte();
+    this.gerichtService.gerichteChanged.subscribe(
+      (gerichte: Gericht[]) => {
+        this.gerichte = gerichte;
+      });
   }
-
   fetch() {
-    this.dataStorageService.fetchGerichte();
-    this.gerichte = this.gerichtService.getGerichte();
-  }
+    this.dataStorageService.fetchGerichte().subscribe(gericht => {
+        this.gerichtService.setGerichte(gericht)
+    }
 
+    );
+  }
+  test() {
+    console.log(this.gerichtService.getGerichte())
+    console.log(this.gerichte)
+  }
 }

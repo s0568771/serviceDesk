@@ -1,23 +1,23 @@
 import {Gericht} from './gericht.model';
 import {Injectable} from '@angular/core';
+import {Subject} from 'rxjs';
 
 @Injectable()
 export class GerichtService {
 
-  private gerichte: Gericht[] = [new Gericht('Salatteller Spezial mit gekochtem Ei und Kidneybohnen',
-    'Vorspeisen', [3.45, 3.8, null, 4.15],
-    ['Eier',
-      'vegetarisch',
-      'grün (Ampel)'
-    ])];
+  private gerichte: Gericht[] = [];
+
+  gerichteChanged = new Subject<Gericht[]>();
 
   getGerichte() {
     return this.gerichte.slice();
   }
 
-  setGerichte(recipes: Gericht[]) {
-    this.gerichte = recipes;
-    console.log(this.gerichte)
+  setGerichte(gericht: Gericht[]) {
+    this.gerichte = gericht;
+    this.gerichteChanged.next(this.gerichte.slice())
   }
+
+
 }
 

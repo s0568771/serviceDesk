@@ -1,5 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Gericht} from '../gericht.model';
+import {BehaviorSubject} from 'rxjs';
+import {GerichtService} from '../gericht.service';
 
 @Component({
   selector: 'app-gerichte-item',
@@ -7,23 +9,18 @@ import {Gericht} from '../gericht.model';
   styleUrls: ['./gerichte-item.component.css']
 
 })
-export class GerichteItemComponent implements OnInit, OnChanges {
-  @Input() gericht: Gericht;
+export class GerichteItemComponent implements OnInit {
 
   mehrInfo = false;
+  @Input() gerichtItem: Gericht;
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes['gericht'].currentValue);
-  }
+
   constructor() {
   }
 
   ngOnInit(): void {
     this.mehrInfo = false;
-
   }
-
-
 
   mehrInfos() {
     this.mehrInfo = true;
