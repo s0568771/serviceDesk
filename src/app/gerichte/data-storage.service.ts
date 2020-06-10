@@ -1,21 +1,34 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpResponse} from '@angular/common/http';
 import {GerichtService} from './gericht.service';
 import {Gericht, GerichteAdapter} from './gericht.model';
-import {map} from 'rxjs/operators';
-import {Observable} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
+import {Observable, throwError} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService {
   constructor(private http: HttpClient, private gerichtService: GerichtService, private adapter: GerichteAdapter) {
   }
 
+
   gericht: Gericht[];
 
-  fetchGerichte(): Observable<Gericht[]> {
-    return this.http.get('https://openmensa.org/api/v2/canteens/30/days/2019-11-18/meals').pipe(
-      map((data: any[]) => data.map((item) => this.adapter.adapt(item)))
+  fetchGerichte(id: number, date: string): Observable<Gericht[]> {
+    return this.http.get('https://openmensa.org/api/v2/canteens/' + id + '/days/' + date + '/meals').pipe(
+      map((data: any[]) => data.map((item) => this.adapter.adapt(item))),
+      catchError(this.errorHandler)
     );
 
+
   };
+  errorHandler(err){
+    if (err instanceof  HttpErrorResponse){
+       if (err.status == 404){
+         console.log("Fehler!! 404")
+       }
+    }else{
+
+    }
+    return throwError(err);
+  }
 }

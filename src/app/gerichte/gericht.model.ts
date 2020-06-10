@@ -29,6 +29,8 @@ export class Preis {
 
 
 export class GerichteAdapter implements Adapter<Gericht> {
+  //https://dev.to/florimondmanca/consuming-apis-in-angular--the-model-adapter-pattern-3fk5
+  //Adapter Pattern
   adapt(item: any): Gericht {
 
     var preis = item.prices;

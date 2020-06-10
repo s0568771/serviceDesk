@@ -1,7 +1,7 @@
   <app-gerichte-item *ngFor="let gericht of gerichte" [gerichtItem]="gericht"></app-gerichte-item>
-<
+
 <div class="col-12">
-  <button (click)="fetch()" type="button" class="btn btn-primary">Primary</button>
+  <button (click)="fetch(5,'2019-11-18')" type="button" class="btn btn-primary">API Fetch</button>
 </div>
 
 <div class="col-12">

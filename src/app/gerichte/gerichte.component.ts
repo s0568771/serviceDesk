@@ -18,20 +18,23 @@ export class GerichteComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.fetch(30, '2019-11-18');
+
     this.gerichtService.gerichteChanged.subscribe(
       (gerichte: Gericht[]) => {
         this.gerichte = gerichte;
       });
   }
-  fetch() {
-    this.dataStorageService.fetchGerichte().subscribe(gericht => {
-        this.gerichtService.setGerichte(gericht)
-    }
 
+  fetch(id: number, date: string) {
+    this.dataStorageService.fetchGerichte(id, date).subscribe(gericht => {
+        this.gerichtService.setGerichte(gericht);
+      }
     );
   }
+
   test() {
-    console.log(this.gerichtService.getGerichte())
-    console.log(this.gerichte)
+    console.log(this.gerichtService.getGerichte());
+    console.log(this.gerichte);
   }
 }
