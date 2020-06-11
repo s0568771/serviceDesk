@@ -25,8 +25,8 @@
       <span>Mensa Hub</span>
       <span class="spacer"></span>
       <span *ngIf="!(isHandset$ | async)">
-          <a routerLinkActive="active_route">Mensen</a>
           <a routerLink="/gerichte" routerLinkActive="active_route" class="px-4">Gerichte</a>
+        <a routerLink="/mensen" routerLinkActive="active_route" class="px-4">Mensen</a>
           <a routerLink="/about" routerLinkActive="active_route">About</a>
       </span>
     </mat-toolbar>

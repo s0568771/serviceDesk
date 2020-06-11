@@ -24,7 +24,7 @@ export class DataStorageService {
   errorHandler(err){
     if (err instanceof  HttpErrorResponse){
        if (err.status == 404){
-         console.log("Fehler!! 404")
+         console.log("Fehler!! 404");
        }
     }else{
 

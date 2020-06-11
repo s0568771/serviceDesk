@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
+import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
@@ -18,6 +18,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {HttpClientModule} from '@angular/common/http';
 import {GerichtService} from './gerichte/gericht.service';
+import { MensenComponent } from './mensen/mensen.component';
+import {MensaService} from './mensen/mensa.service';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import {GerichtService} from './gerichte/gericht.service';
     GerichteComponent,
     GerichteItemComponent,
     AboutComponent,
-    MainNavComponent
+    MainNavComponent,
+    MensenComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,9 +43,11 @@ import {GerichtService} from './gerichte/gericht.service';
     LayoutModule,
     MatSidenavModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+
   ],
-  providers: [GerichtService],
+  providers: [GerichtService, MensaService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
