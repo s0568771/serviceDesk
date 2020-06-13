@@ -1,0 +1,24 @@
+.title-center {
+  flex: 1 1 auto;
+  text-align: center;
+  font-size: 15px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.mat-button {
+  outline: none;
+  border: 0;
+
+}
+.mat-expansion-panel {
+  overflow: inherit !important;
+}
+
+.mat-expansion-panel-body {
+  overflow: hidden;
+}
+
+.mat-expansion-panel-header.mat-expanded {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}

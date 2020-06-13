@@ -1,33 +1,39 @@
-<div>
-  <br>
-    <table mat-table [dataSource]="mensen">
+<!--<div class="table-responsive mat-evalation-z8">-->
+<!--  <br>-->
+<!--    <table mat-table [dataSource]="mensen">-->
 
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>id</th>
-        <td mat-cell *matCellDef="let element">{{element.id}}</td>
-      </ng-container>
+<!--      <ng-container matColumnDef="id">-->
+<!--        <th mat-header-cell *matHeaderCellDef>id</th>-->
+<!--        <td mat-cell *matCellDef="let element">{{element.id}}</td>-->
+<!--      </ng-container>-->
 
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let element">{{element.name}}</td>
-      </ng-container>
+<!--      <ng-container matColumnDef="name">-->
+<!--        <th mat-header-cell *matHeaderCellDef>Name</th>-->
+<!--        <td mat-cell *matCellDef="let element">{{element.name}}</td>-->
+<!--      </ng-container>-->
 
-      <ng-container matColumnDef="city">
-        <th mat-header-cell *matHeaderCellDef>City</th>
-        <td mat-cell *matCellDef="let element">{{element.city}}</td>
-      </ng-container>
+<!--      <ng-container matColumnDef="city">-->
+<!--        <th mat-header-cell *matHeaderCellDef>Stadt</th>-->
+<!--        <td mat-cell *matCellDef="let element">{{element.city}}</td>-->
+<!--      </ng-container>-->
 
-      <ng-container matColumnDef="address">
-        <th mat-header-cell *matHeaderCellDef>Adresse</th>
-        <td mat-cell *matCellDef="let element">{{element.adress}}</td>
-      </ng-container>
+<!--      <ng-container matColumnDef="address">-->
+<!--        <th mat-header-cell *matHeaderCellDef>Adresse</th>-->
+<!--        <td mat-cell *matCellDef="let element">{{element.address}}</td>-->
+<!--      </ng-container>-->
 
-      <ng-container matColumnDef="coordinates">
-        <th mat-header-cell *matHeaderCellDef>Coordinates</th>
-        <td mat-cell *matCellDef="let element">{{element.coordinates}}</td>
-      </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="diplayerdColums"></tr>
-      <tr mat-row *matRowDef="let myRowData; columns: diplayerdColums"></tr>
-    </table>
-</div>
+<!--      <tr mat-header-row *matHeaderRowDef="diplayerdColums"></tr>-->
+<!--      <tr mat-row *matRowDef="let myRowData; columns: diplayerdColums"></tr>-->
+<!--    </table>-->
+<!--</div>-->
+
+<mat-selection-list #mensa [multiple]="false" >
+  <mat-list-option *ngFor="let mensen of mensen" (click)="onAreaListControlChanged(mensen)">
+    {{mensen.name}}
+  </mat-list-option>
+</mat-selection-list>
+<p>
+  {{mensa.selectedOptions}}
+</p>
+

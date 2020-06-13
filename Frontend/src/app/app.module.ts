@@ -21,6 +21,14 @@ import {GerichtService} from './gerichte/gericht.service';
 import { MensenComponent } from './mensen/mensen.component';
 import {MensaService} from './mensen/mensa.service';
 import {MatTableModule} from '@angular/material/table';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatChipsModule} from '@angular/material/chips';
+import {FormsModule} from '@angular/forms';
+import {DatePipe} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -45,9 +53,16 @@ import {MatTableModule} from '@angular/material/table';
     MatListModule,
     HttpClientModule,
     MatTableModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatTabsModule,
+    MatTooltipModule,
+    MatProgressBarModule,
+    MatChipsModule,
+    FormsModule,
 
   ],
-  providers: [GerichtService, MensaService],
+  providers: [GerichtService, MensaService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {
