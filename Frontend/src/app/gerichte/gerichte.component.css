@@ -4,21 +4,44 @@
   font-size: 15px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
 .mat-button {
   outline: none;
   border: 0;
-
 }
+
 .mat-expansion-panel {
-  overflow: inherit !important;
-}
-
-.mat-expansion-panel-body {
-  overflow: hidden;
-}
-
-.mat-expansion-panel-header.mat-expanded {
   position: sticky;
-  top: 0;
-  z-index: 1000;
+  z-index: 1;
 }
+.mat-expansion-panel-header{
+  position: fixed;
+  z-index: 5;
+  height: 64px !important;
+  background-color: lightskyblue !important;
+  justify-content: center;
+  width: 100%;
+}
+.mensen-container{
+  padding-bottom: 64px;
+}
+.mat-toolbar{
+  position: fixed;
+  z-index: 5;
+}
+.example-card{
+  z-index: 1;
+}
+.mensen{
+  margin-bottom: 20%;
+}
+.mat-panel-description{
+  height: auto;
+}
+
+
+
+
+
+
+

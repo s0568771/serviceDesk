@@ -19,10 +19,10 @@ export class GerichteComponent implements OnInit {
   date = new Date();
   constructor(private gerichtService: GerichtService, private dataStorageService: DataStorageService, public datePipe: DatePipe) {
   }
-
+ // this.datePipe.transform(this.date, 'yyyy-MM-dd')
   ngOnInit() {
-    this.fetch(30, this.datePipe.transform(this.date, 'yyyy-MM-dd')); //'2019-11-18'
-    console.log(this.datePipe.transform(this.date, 'yyyy-MM-dd'));
+      this.fetch(30,'2019-11-18' ); //'2019-11-18'
+     console.log(this.datePipe.transform(this.date, 'yyyy-MM-dd'));
     this.gerichtService.gerichteChanged.subscribe(
       (gerichte: Gericht[]) => {
         this.gerichte = gerichte;
