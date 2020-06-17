@@ -1,18 +1,16 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 <div class="mensen-container">
-  <div class="yolo">
-      <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false">
-        <app-mensen (mensaSelected)="doSomething($event)"></app-mensen>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <mat-icon aria-hidden="false" aria-label="Example home icon" color="accent">home</mat-icon>
-            <span class="mr-3"></span> {{mensaSelected}}
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-      </mat-expansion-panel>
-</div>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <app-mensen (mensaSelected)="doSomething($event)"></app-mensen>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" color="accent">home</mat-icon>
+        <span class="mr-3"></span> {{mensaSelectedName}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
 </div>
 <div class="mensen">
   <mat-toolbar color="primary">
@@ -26,8 +24,13 @@
     </button>
   </mat-toolbar>
 </div>
-<div *ngIf="!panelOpenState">
-  <app-gerichte-item *ngFor="let gericht of gerichte"
-                     [gerichtItem]="gericht"></app-gerichte-item>
+<div *ngIf="keineGerichte">
+  <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
 </div>
 
+<div *ngIf="!keineGerichte">
+  <div *ngIf="!panelOpenState" class="mx-3">
+    <app-gerichte-item *ngFor="let gericht of gerichte"
+                       [gerichtItem]="gericht"></app-gerichte-item>
+  </div>
+</div>

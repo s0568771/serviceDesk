@@ -10,24 +10,16 @@ import {Mensa} from './mensa.model';
 })
 export class MensenComponent implements OnInit {
   mensen: Mensa[] = [];
-  @Output() mensaSelected: EventEmitter<String> = new EventEmitter<String>();
+  @Output() mensaSelected: EventEmitter<any> = new EventEmitter<any>();
   mensa;
-
-  diplayerdColums: string[] = ['id', 'name', 'city', 'address'];
 
   constructor(private mensenService: MensaService) {
   }
-
-  selectedOption: String;
 
   ngOnInit() {
     this.fetchMensen();
 
 
-  }
-
-  onNgModelChange($event) {
-    this.selectedOption = $event;
   }
 
   fetchMensen() {
@@ -38,7 +30,7 @@ export class MensenComponent implements OnInit {
   }
 
   onAreaListControlChanged(mensa) {
-    this.mensa = mensa.name;
+    this.mensa = mensa;
     this.mensaSelected.emit(this.mensa);
 
   }

@@ -15,37 +15,55 @@ import {DatePipe} from '@angular/common';
 export class GerichteComponent implements OnInit {
   public gerichte: Gericht[] = [];
   panelOpenState = false;
-  mensaSelected: String;
+  mensaSelectedName: String;
+  mensaSelectedID: number;
   date = new Date();
+  keineGerichte: boolean;
+  GerichteLoaded: Promise<boolean>;
+
+
   constructor(private gerichtService: GerichtService, private dataStorageService: DataStorageService, public datePipe: DatePipe) {
   }
- // this.datePipe.transform(this.date, 'yyyy-MM-dd')
+
+  // this.datePipe.transform(this.date, 'yyyy-MM-dd')
   ngOnInit() {
-      this.fetch(30,'2019-11-18' ); //'2019-11-18'
-     console.log(this.datePipe.transform(this.date, 'yyyy-MM-dd'));
     this.gerichtService.gerichteChanged.subscribe(
       (gerichte: Gericht[]) => {
         this.gerichte = gerichte;
+      });
+    this.dataStorageService.keineGerichte.subscribe(
+      (keineGerichte) => {
+        this.keineGerichte = keineGerichte.valueOf();
       });
   }
 
 
   fetch(id: number, date: string) {
     this.dataStorageService.fetchGerichte(id, date).subscribe(gericht => {
+        console.log(gericht);
         this.gerichtService.setGerichte(gericht);
-      }
+      this.GerichteLoaded = Promise.resolve(true);
+      }, (error => {
+        this.keineGerichte = true;
+      })
     );
+    this.keineGerichte = false;
   }
 
   dateForward() {
     this.date = new Date(this.date.setDate(this.date.getDate() + 1));
+    this.fetch(this.mensaSelectedID, this.datePipe.transform(this.date, 'yyyy-MM-dd'));
   }
+
   dateBack() {
     this.date = new Date(this.date.setDate(this.date.getDate() - 1));
+    this.fetch(this.mensaSelectedID, this.datePipe.transform(this.date, 'yyyy-MM-dd'));
   }
 
   doSomething($event: any) {
-    this.mensaSelected = $event.valueOf();
-    console.log(this.mensaSelected)
+    this.mensaSelectedName = $event.valueOf().name;
+    this.mensaSelectedID = $event.valueOf().id;
+    this.fetch(this.mensaSelectedID, this.datePipe.transform(this.date, 'yyyy-MM-dd'));
+    console.log(this.gerichte);
   }
 }

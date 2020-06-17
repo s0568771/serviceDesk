@@ -1,7 +1,5 @@
-<div>
 <mat-selection-list #mensa [multiple]="false" >
   <mat-list-option *ngFor="let mensen of mensen" (click)="onAreaListControlChanged(mensen)">
     {{mensen.name}}
   </mat-list-option>
 </mat-selection-list>
-</div>
