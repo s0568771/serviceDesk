@@ -1,3 +1,4 @@
+
 .title-center {
   flex: 1 1 auto;
   text-align: center;
@@ -14,16 +15,24 @@
   position: sticky;
   z-index: 1;
 }
-.mat-expansion-panel-header{
+.mat-expansion-panel-header {
   position: fixed;
   z-index: 5;
   height: 64px !important;
-  background-color: lightskyblue !important;
+  background-color: #673ab7 !important;
   justify-content: center;
   width: 100%;
 }
+.mat-expansion-indicator{
+  color: white;
+}
 .mensen-container{
-  padding-bottom: 64px;
+  padding-bottom: 63px;
+  margin-top: -5px;
+
+}
+.start{
+  align-content: start !important;
 }
 .mat-toolbar{
   position: fixed;
@@ -34,9 +43,18 @@
 }
 .mensen{
   margin-bottom: 75px;
+  margin-top: -5px;
+
 }
 .mat-panel-description{
   height: auto;
+}
+.mat-expansion-panel-header-title{
+  color: white;
+  font-size: 20px;
+}
+.mat-expansion-panel-header-description, .mat-expansion-indicator::after{
+  color: white !important;
 }
 
 

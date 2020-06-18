@@ -40,7 +40,6 @@ export class GerichteComponent implements OnInit {
 
   fetch(id: number, date: string) {
     this.dataStorageService.fetchGerichte(id, date).subscribe(gericht => {
-        console.log(gericht);
         this.gerichtService.setGerichte(gericht);
       this.GerichteLoaded = Promise.resolve(true);
       }, (error => {

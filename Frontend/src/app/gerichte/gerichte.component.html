@@ -4,16 +4,15 @@
   <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
     <app-mensen (mensaSelected)="doSomething($event)"></app-mensen>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <mat-icon aria-hidden="false" aria-label="Example home icon" color="accent">home</mat-icon>
-        <span class="mr-3"></span> {{mensaSelectedName}}
-      </mat-panel-title>
+    <mat-expansion-panel-header class="specific-class">
+      <mat-panel-title class="justify-content-start">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" color="accent">favorite</mat-icon>
+       <span class="title-center"> {{mensaSelectedName}}</span>  </mat-panel-title>
     </mat-expansion-panel-header>
   </mat-expansion-panel>
 </div>
 <div class="mensen">
-  <mat-toolbar color="primary">
+  <mat-toolbar class="mat-elevation" color="primary">
     <button mat-icon-button aria-label="chevron_left">
       <mat-icon (click)="dateBack()">chevron_left</mat-icon>
     </button>

@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MensaService} from './mensa.service';
 import {Mensa} from './mensa.model';
+import {DataStorageService} from '../gerichte/data-storage.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class MensenComponent implements OnInit {
   @Output() mensaSelected: EventEmitter<any> = new EventEmitter<any>();
   mensa;
 
-  constructor(private mensenService: MensaService) {
+  constructor(private mensenService: MensaService, private dataStorageService: DataStorageService) {
   }
 
   ngOnInit() {
