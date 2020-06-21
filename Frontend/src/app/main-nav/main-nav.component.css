@@ -3,7 +3,20 @@
 }
 
 .sidenav {
-  width: 200px;
+  width: 230px;
+}
+.favor{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+}
+.mensarino-font{
+  font-size: 24px !important;
+  font-style: normal !important;
+}
+.logo-size{
+  width: 70%;
 }
 
 .sidenav .mat-toolbar {
@@ -15,19 +28,24 @@
   top: 0;
   z-index: 5;
 }
+
 .hidden {
   display: none;
 }
-.spacer{
+
+.spacer {
   flex: 1 1 auto;
 }
+
 mat-toolbar a {
   display: inline-block;
   color: white;
 }
+
 mat-list:hover {
   cursor: pointer;
 }
+
 .active_route {
   text-decoration: underline;
 }

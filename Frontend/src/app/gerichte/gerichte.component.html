@@ -3,11 +3,11 @@
 <div class="mensen-container">
   <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
-    <app-mensen (mensaSelected)="doSomething($event)"></app-mensen>
+    <app-mensen (mensaSelected)="useMensaSelected($event)"></app-mensen>
     <mat-expansion-panel-header class="specific-class">
       <mat-panel-title class="justify-content-start">
         <mat-icon aria-hidden="false" aria-label="Example home icon" color="accent">favorite</mat-icon>
-       <span class="title-center"> {{mensaSelectedName}}</span>  </mat-panel-title>
+        <span class="title-center"> {{mensaSelectedName}}</span></mat-panel-title>
     </mat-expansion-panel-header>
   </mat-expansion-panel>
 </div>
@@ -24,9 +24,13 @@
   </mat-toolbar>
 </div>
 <div *ngIf="keineGerichte">
-  <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+  <div *ngIf="!panelOpenState" class="container d-flex h-100">
+    <div class="mx-auto mt-5">
+      <mat-icon class="icon-size mr-5" aria-label="Example home icon">sentiment_dissatisfied
+      </mat-icon>
+    </div>
+  </div>
 </div>
-
 <div *ngIf="!keineGerichte">
   <div *ngIf="!panelOpenState" class="mx-3">
     <app-gerichte-item *ngFor="let gericht of gerichte"

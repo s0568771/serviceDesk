@@ -4,7 +4,9 @@
   text-align: center;
   font-size: 15px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 300;
 }
+
 
 .mat-button {
   outline: none;
@@ -29,7 +31,12 @@
 .mensen-container{
   padding-bottom: 63px;
   margin-top: -5px;
-
+}
+.icon-size{
+  font-size: 70px;
+}
+.center-icon{
+  margin-top: auto;
 }
 .start{
   align-content: start !important;

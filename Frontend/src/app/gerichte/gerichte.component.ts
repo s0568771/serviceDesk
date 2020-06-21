@@ -15,11 +15,10 @@ import {DatePipe} from '@angular/common';
 export class GerichteComponent implements OnInit {
   public gerichte: Gericht[] = [];
   panelOpenState = false;
-  mensaSelectedName: String;
-  mensaSelectedID: number;
+  mensaSelectedName: String = "Hannover, Contine";
+  mensaSelectedID: number = 7;
   date = new Date();
   keineGerichte: boolean;
-  GerichteLoaded: Promise<boolean>;
 
 
   constructor(private gerichtService: GerichtService, private dataStorageService: DataStorageService, public datePipe: DatePipe) {
@@ -27,13 +26,17 @@ export class GerichteComponent implements OnInit {
 
   // this.datePipe.transform(this.date, 'yyyy-MM-dd')
   ngOnInit() {
+    this.fetch(this.mensaSelectedID, this.datePipe.transform(this.date, 'yyyy-MM-dd'));
+
     this.gerichtService.gerichteChanged.subscribe(
       (gerichte: Gericht[]) => {
         this.gerichte = gerichte;
-      });
-    this.dataStorageService.keineGerichte.subscribe(
-      (keineGerichte) => {
-        this.keineGerichte = keineGerichte.valueOf();
+        if (Array.isArray(this.gerichte) && this.gerichte.length){
+          //check ob der Array existiert und nicht leer ist
+          this.keineGerichte = false;
+        }else{
+          this.keineGerichte = true;
+        }
       });
   }
 
@@ -41,8 +44,8 @@ export class GerichteComponent implements OnInit {
   fetch(id: number, date: string) {
     this.dataStorageService.fetchGerichte(id, date).subscribe(gericht => {
         this.gerichtService.setGerichte(gericht);
-      this.GerichteLoaded = Promise.resolve(true);
       }, (error => {
+        //schmeißt HTTP error
         this.keineGerichte = true;
       })
     );
@@ -59,10 +62,10 @@ export class GerichteComponent implements OnInit {
     this.fetch(this.mensaSelectedID, this.datePipe.transform(this.date, 'yyyy-MM-dd'));
   }
 
-  doSomething($event: any) {
+  useMensaSelected($event: any) {
     this.mensaSelectedName = $event.valueOf().name;
     this.mensaSelectedID = $event.valueOf().id;
     this.fetch(this.mensaSelectedID, this.datePipe.transform(this.date, 'yyyy-MM-dd'));
-    console.log(this.gerichte);
+    // neue API Anfrage, wenn eine Mensa ausgewählt wurde.
   }
 }

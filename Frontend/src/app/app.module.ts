@@ -29,6 +29,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatChipsModule} from '@angular/material/chips';
 import {FormsModule} from '@angular/forms';
 import {DatePipe} from '@angular/common';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,7 @@ import {DatePipe} from '@angular/common';
     MatProgressBarModule,
     MatChipsModule,
     FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
 
   ],
   providers: [GerichtService, MensaService, DatePipe],
