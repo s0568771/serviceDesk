@@ -15,10 +15,11 @@ import {DatePipe} from '@angular/common';
 export class GerichteComponent implements OnInit {
   public gerichte: Gericht[] = [];
   panelOpenState = false;
-  mensaSelectedName: String = "Hannover, Contine";
+  mensaSelectedName: String = 'Hannover, Contine';
   mensaSelectedID: number = 7;
   date = new Date();
   keineGerichte: boolean;
+  favoriteMensa: String[] = [];
 
 
   constructor(private gerichtService: GerichtService, private dataStorageService: DataStorageService, public datePipe: DatePipe) {
@@ -31,10 +32,10 @@ export class GerichteComponent implements OnInit {
     this.gerichtService.gerichteChanged.subscribe(
       (gerichte: Gericht[]) => {
         this.gerichte = gerichte;
-        if (Array.isArray(this.gerichte) && this.gerichte.length){
+        if (Array.isArray(this.gerichte) && this.gerichte.length) {
           //check ob der Array existiert und nicht leer ist
           this.keineGerichte = false;
-        }else{
+        } else {
           this.keineGerichte = true;
         }
       });
@@ -66,6 +67,16 @@ export class GerichteComponent implements OnInit {
     this.mensaSelectedName = $event.valueOf().name;
     this.mensaSelectedID = $event.valueOf().id;
     this.fetch(this.mensaSelectedID, this.datePipe.transform(this.date, 'yyyy-MM-dd'));
+
     // neue API Anfrage, wenn eine Mensa ausgewählt wurde.
+  }
+
+  addFavorite() {
+    if (!this.favoriteMensa.includes(this.mensaSelectedName)) {
+      this.favoriteMensa.push(this.mensaSelectedName);
+    }
+  }
+  deleteFavorite() {
+    this.favoriteMensa.splice(this.favoriteMensa.indexOf(this.mensaSelectedName), 1);
   }
 }

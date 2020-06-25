@@ -6,13 +6,20 @@
     <app-mensen (mensaSelected)="useMensaSelected($event)"></app-mensen>
     <mat-expansion-panel-header class="specific-class">
       <mat-panel-title class="justify-content-start">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" color="accent">favorite</mat-icon>
+        <mat-icon *ngIf="!this.favoriteMensa.includes(this.mensaSelectedName)"
+                  (click)="addFavorite(); $event.stopPropagation()" aria-hidden="false" aria-label="Example home icon"
+                  color="accent">favorite_border
+        </mat-icon>
+        <mat-icon *ngIf="this.favoriteMensa.includes(this.mensaSelectedName)"
+                  (click)="deleteFavorite(); $event.stopPropagation()" aria-hidden="false"
+                  aria-label="Example home icon" color="accent">favorite
+        </mat-icon>
         <span class="title-center"> {{mensaSelectedName}}</span></mat-panel-title>
     </mat-expansion-panel-header>
   </mat-expansion-panel>
 </div>
 <div class="mensen">
-  <mat-toolbar class="mat-elevation" color="primary">
+  <mat-toolbar color="primary">
     <button mat-icon-button aria-label="chevron_left">
       <mat-icon (click)="dateBack()">chevron_left</mat-icon>
     </button>
@@ -24,12 +31,10 @@
   </mat-toolbar>
 </div>
 <div *ngIf="keineGerichte">
-  <div *ngIf="!panelOpenState" class="container d-flex h-100">
-    <div class="mx-auto mt-5">
-      <mat-icon class="icon-size mr-5" aria-label="Example home icon">sentiment_dissatisfied
-      </mat-icon>
-    </div>
+  <div *ngIf="!panelOpenState" class="h-100 image-container">
+    <img class="icon-size mt-5" src="assets/noFood.jpeg">
   </div>
+  <div class="image-container mt-3"> Hoppla! Gibt wohl kein Essen für diesen Tag. <br>Danke Merkel !!1</div>
 </div>
 <div *ngIf="!keineGerichte">
   <div *ngIf="!panelOpenState" class="mx-3">

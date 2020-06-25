@@ -9,7 +9,7 @@
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 17px;
 }
 .mensarino-font{
   font-size: 24px !important;
@@ -17,6 +17,9 @@
 }
 .logo-size{
   width: 70%;
+}
+.logo-size-top{
+  width: 20%;
 }
 
 .sidenav .mat-toolbar {

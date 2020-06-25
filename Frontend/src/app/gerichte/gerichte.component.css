@@ -21,7 +21,7 @@
   position: fixed;
   z-index: 5;
   height: 64px !important;
-  background-color: #673ab7 !important;
+  background-color: #6200ea !important;
   justify-content: center;
   width: 100%;
 }
@@ -33,7 +33,14 @@
   margin-top: -5px;
 }
 .icon-size{
-  font-size: 70px;
+  width: 60%;
+  margin: auto;
+}
+.image-container{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
 }
 .center-icon{
   margin-top: auto;

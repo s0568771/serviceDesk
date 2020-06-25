@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container ">
   <mat-sidenav
     #drawer class="sidenav"
     [ngClass]="{hidden: !(isHandset$ | async)}"
@@ -6,10 +6,12 @@
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false">
-    <mat-toolbar class="mensarino-font mb-5">Mensarino</mat-toolbar>
+    <mat-toolbar class="mensarino-font mb-5"><img src="assets/icons/icon-72x72.png" class="logo-size-top mr-4">Mensarino
+    </mat-toolbar>
     <mat-nav-list>
+      <a routerLink="/gerichte" mat-list-item>Speiseplan</a>
       <a mat-list-item>Einstellungen</a>
-      <a mat-list-item>Über Uns</a>
+      <a routerLink="/about" mat-list-item>Über Uns</a>
       <a mat-list-item>Impressum</a>
       <a mat-list-item>Hilfe</a>
     </mat-nav-list>
