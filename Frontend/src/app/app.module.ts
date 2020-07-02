@@ -31,6 +31,9 @@ import {FormsModule} from '@angular/forms';
 import {DatePipe} from '@angular/common';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { PraeferenzenComponent } from './praeferenzen/praeferenzen.component';
+import { ImpressumComponent } from './impressum/impressum.component';
+import { HilfeComponent } from './hilfe/hilfe.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import { environment } from '../environments/environment';
     AboutComponent,
     MainNavComponent,
     MensenComponent,
+    PraeferenzenComponent,
+    ImpressumComponent,
+    HilfeComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,22 @@
+<p>
+  <mat-toolbar class="fave">
+    <span>Deine Mensafavoriten</span>
+  </mat-toolbar>
+</p>
+<div class="container mb-2">
+<mat-chip-list>
+  <div class="col-12">
+  <mat-chip #chipList *ngFor="let option of favorite" [removable]="true"
+            (removed)="remove(option)">{{option}}
+    <mat-icon matChipRemove class="ml-auto">cancel</mat-icon>
+  </mat-chip></div>
+</mat-chip-list>
+</div>
+<p>
+  <mat-toolbar class="fave">
+    <span>Benachrichtungen</span>
+  </mat-toolbar>
+</p>
+<button class="button button-primary" (click)="subscribeToNotifications()">
+  Subscribe
+</button>

@@ -5,6 +5,7 @@ import {DataStorageService} from './data-storage.service';
 import {BehaviorSubject, Subject} from 'rxjs';
 import {Mensa} from '../mensen/mensa.model';
 import {DatePipe} from '@angular/common';
+import {FavoriteService} from './favorite.service';
 
 @Component({
   selector: 'app-gerichte',
@@ -19,10 +20,12 @@ export class GerichteComponent implements OnInit {
   mensaSelectedID: number = 7;
   date = new Date();
   keineGerichte: boolean;
-  favoriteMensa: String[] = [];
+  favoriteMensa;
 
-
-  constructor(private gerichtService: GerichtService, private dataStorageService: DataStorageService, public datePipe: DatePipe) {
+  constructor(private gerichtService: GerichtService,
+              private dataStorageService: DataStorageService,
+              private favoriteService: FavoriteService,
+              public datePipe: DatePipe) {
   }
 
   // this.datePipe.transform(this.date, 'yyyy-MM-dd')
@@ -39,6 +42,7 @@ export class GerichteComponent implements OnInit {
           this.keineGerichte = true;
         }
       });
+    this.favoriteMensa = JSON.parse(localStorage.getItem('favorite'));
   }
 
 
@@ -72,11 +76,13 @@ export class GerichteComponent implements OnInit {
   }
 
   addFavorite() {
-    if (!this.favoriteMensa.includes(this.mensaSelectedName)) {
-      this.favoriteMensa.push(this.mensaSelectedName);
-    }
+    this.favoriteService.addFavorites(this.mensaSelectedName);
+    this.favoriteMensa = this.favoriteService.getFavorites();
   }
+
   deleteFavorite() {
-    this.favoriteMensa.splice(this.favoriteMensa.indexOf(this.mensaSelectedName), 1);
+    this.favoriteService.deleteFavorite(this.mensaSelectedName);
+    this.favoriteMensa = this.favoriteService.getFavorites();
+
   }
 }
