@@ -19,8 +19,6 @@ export class MensenComponent implements OnInit {
 
   ngOnInit() {
     this.fetchMensen();
-
-
   }
 
   fetchMensen() {

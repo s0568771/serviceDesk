@@ -5,9 +5,14 @@
   font-size: 15px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-weight: 300;
+  color: white;
+  justify-content: center !important;
+  margin: auto;
 }
-
-
+.center{
+  margin-top: auto;
+  margin-bottom: auto;
+}
 .mat-button {
   outline: none;
   border: 0;
@@ -17,6 +22,7 @@
   position: sticky;
   z-index: 1;
 }
+
 .mat-expansion-panel-header {
   position: fixed;
   z-index: 5;
@@ -25,49 +31,77 @@
   justify-content: center;
   width: 100%;
 }
-.mat-expansion-indicator{
+
+.mat-expansion-indicator {
   color: white;
 }
-.mensen-container{
+
+.mensen-container {
   padding-bottom: 63px;
   margin-top: -5px;
+  padding-right: 24px;
 }
-.icon-size{
+
+.icon-size {
   width: 60%;
   margin: auto;
 }
-.image-container{
+
+.image-container {
   display: flex;
   justify-content: center;
   text-align: center;
 
 }
-.center-icon{
+
+.center-icon {
   margin-top: auto;
 }
-.start{
+
+.start {
   align-content: start !important;
 }
-.mat-toolbar{
+
+.mat-toolbar {
   position: fixed;
   z-index: 5;
 }
-.example-card{
+
+.example-card {
   z-index: 1;
 }
-.mensen{
-  margin-bottom: 75px;
-  margin-top: -5px;
 
+.marginGerichte {
+  margin-bottom: 90px;
 }
-.mat-panel-description{
+
+.mensen {
+  margin-top: -5px;
+  background-color: #6200ea;
+  height: 64px;
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+  position: fixed;
+  z-index: 20;
+  color: white;
+}
+
+.button {
+  color: white;
+}
+
+.mat-panel-description {
   height: auto;
 }
-.mat-expansion-panel-header-title{
+
+.mat-expansion-panel-header-title {
   color: white;
   font-size: 20px;
+
 }
-.mat-expansion-panel-header-description, .mat-expansion-indicator::after{
+
+.mat-expansion-panel-header-description, .mat-expansion-indicator::after {
   color: white !important;
 }
 

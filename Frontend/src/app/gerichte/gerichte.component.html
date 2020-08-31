@@ -4,31 +4,35 @@
   <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
     <app-mensen (mensaSelected)="useMensaSelected($event)"></app-mensen>
-    <mat-expansion-panel-header class="specific-class">
+    <mat-expansion-panel-header class="col-lg-6 offset-lg-3">
       <mat-panel-title class="justify-content-start">
-        <mat-icon *ngIf="!this.favoriteMensa.includes(this.mensaSelectedName)"
-                  (click)="addFavorite(); $event.stopPropagation()" aria-hidden="false" aria-label="Example home icon"
-                  color="accent">favorite_border
-        </mat-icon>
-        <mat-icon *ngIf="this.favoriteMensa.includes(this.mensaSelectedName)"
-                  (click)="deleteFavorite(); $event.stopPropagation()" aria-hidden="false"
-                  aria-label="Example home icon" color="accent">favorite
-        </mat-icon>
+        <div *ngIf="this.mensaSelectedName">
+          <mat-icon *ngIf="!this.favoriteMensa.includes(this.mensaSelectedName)"
+                    (click)="addFavorite(); $event.stopPropagation()" aria-hidden="false" aria-label="Example home icon"
+                    color="accent">favorite_border
+          </mat-icon>
+        </div>
+        <div *ngIf="this.mensaSelectedName">
+          <mat-icon *ngIf="this.favoriteMensa.includes(this.mensaSelectedName)"
+                    (click)="deleteFavorite(); $event.stopPropagation()" aria-hidden="false"
+                    aria-label="Example home icon" color="accent">favorite
+          </mat-icon>
+        </div>
         <span class="title-center"> {{mensaSelectedName}}</span></mat-panel-title>
     </mat-expansion-panel-header>
   </mat-expansion-panel>
 </div>
-<div class="mensen">
-  <mat-toolbar color="primary">
-    <button mat-icon-button aria-label="chevron_left">
+<div class="marginGerichte">
+<div class="d-flex mensen col-lg-6 offset-lg-3">
+    <button class="center" mat-icon-button aria-label="chevron_left">
       <mat-icon (click)="dateBack()">chevron_left</mat-icon>
     </button>
     <span class="title-center">
 {{date.toLocaleString('de', {weekday: 'long'}) + ' - '}}{{date | date:'dd.MM.yyyy'}} </span>
-    <button mat-icon-button aria-label="chevron_right">
+    <button class="center" mat-icon-button aria-label="chevron_right">
       <mat-icon (click)="dateForward()">chevron_right</mat-icon>
     </button>
-  </mat-toolbar>
+</div>
 </div>
 <div *ngIf="keineGerichte">
   <div *ngIf="!panelOpenState" class="h-100 image-container">
@@ -36,9 +40,11 @@
   </div>
   <div class="image-container mt-3"> Hoppla! Kein Essen verfügbar.</div>
 </div>
-<div *ngIf="!keineGerichte">
-  <div *ngIf="!panelOpenState" class="mx-3">
-    <app-gerichte-item *ngFor="let gericht of gerichte"
-                       [gerichtItem]="gericht"></app-gerichte-item>
+<div class="col-md-12 col-lg-6 offset-lg-3">
+  <div *ngIf="!keineGerichte">
+    <div *ngIf="!panelOpenState" class="mx-3">
+      <app-gerichte-item *ngFor="let gericht of gerichte"
+                         [gerichtItem]="gericht"></app-gerichte-item>
+    </div>
   </div>
 </div>
