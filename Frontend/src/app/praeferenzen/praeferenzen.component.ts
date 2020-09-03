@@ -27,8 +27,6 @@ export class PraeferenzenComponent implements OnInit {
   }
 
   remove(e): void {
-    // const index = this.favorite.indexOf(e);
-    console.log(e);
     this.favoriteService.deleteFavorite(e);
 
   }
