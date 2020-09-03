@@ -3,4 +3,11 @@
 }
 .fave{
   font-size: 18px !important;
+  height: 50px;
+  background-color: whitesmoke;
 }
+.size{
+  height: 100px;
+}
+
+

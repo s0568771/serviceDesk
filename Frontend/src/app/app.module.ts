@@ -34,6 +34,7 @@ import { environment } from '../environments/environment';
 import { PraeferenzenComponent } from './praeferenzen/praeferenzen.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { HilfeComponent } from './hilfe/hilfe.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -47,30 +48,31 @@ import { HilfeComponent } from './hilfe/hilfe.component';
     ImpressumComponent,
     HilfeComponent,
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatCardModule,
-    MatButtonModule,
-    MatDividerModule,
-    AppRoutingModule,
-    LayoutModule,
-    MatSidenavModule,
-    MatListModule,
-    HttpClientModule,
-    MatTableModule,
-    MatExpansionModule,
-    MatFormFieldModule,
-    MatTabsModule,
-    MatTooltipModule,
-    MatProgressBarModule,
-    MatChipsModule,
-    FormsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatCardModule,
+        MatButtonModule,
+        MatDividerModule,
+        AppRoutingModule,
+        LayoutModule,
+        MatSidenavModule,
+        MatListModule,
+        HttpClientModule,
+        MatTableModule,
+        MatExpansionModule,
+        MatFormFieldModule,
+        MatTabsModule,
+        MatTooltipModule,
+        MatProgressBarModule,
+        MatChipsModule,
+        FormsModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+        MatSlideToggleModule,
 
-  ],
+    ],
   providers: [GerichtService, MensaService, DatePipe],
   bootstrap: [AppComponent]
 })

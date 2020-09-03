@@ -1,22 +1,30 @@
-
-  <mat-toolbar class="fave">
-    <span>Deine Mensafavoriten</span>
-  </mat-toolbar>
-
-<div class="container mb-2">
-<mat-chip-list>
-  <div class="col-12">
-  <mat-chip #chipList *ngFor="let option of favorite" [removable]="true"
-            (removed)="remove(option)">{{option}}
-    <mat-icon matChipRemove class="ml-auto">cancel</mat-icon>
-  </mat-chip></div>
-</mat-chip-list>
+<div class="fave d-flex">
+  <div class="ml-2 my-auto">Deine Mensafavoriten</div>
 </div>
-<p>
-  <mat-toolbar class="fave">
-    <span>Benachrichtungen</span>
-  </mat-toolbar>
-</p>
-<button class="button button-primary" (click)="subscribeToNotifications()">
-  Subscribe
-</button>
+
+<div class="container">
+  <mat-chip-list>
+    <div class="col-12">
+      <mat-chip #chipList *ngFor="let option of favorite" [removable]="true"
+                (removed)="remove(option)">{{option}}
+        <mat-icon matChipRemove class="ml-auto">cancel</mat-icon>
+      </mat-chip>
+    </div>
+  </mat-chip-list>
+</div>
+
+<div class="fave d-flex justify-content-between mt-5">
+  <div class="ml-2 my-auto">Benachrichtungen</div>
+  <div class="mr-2 my-auto">
+
+    <mat-slide-toggle [(ngModel)]="isChecked"></mat-slide-toggle>
+
+  </div>
+</div>
+
+<div class="d-flex justify-content-center"><p class="size"><b>Du bekommst jeden Tag eine Benachrichtiung mit den
+  heutigen Mahlzeiten!</b></p>
+</div>
+<div class="d-flex justify-content-center">
+
+</div>

@@ -20,12 +20,13 @@ button:focus, button:active:focus, button.active:focus {
   color: white !important;
   margin-right: 8px;
 }
-.mat-toolbar{
+
+.mat-toolbar {
   font-family: Roboto;
   font-style: normal !important;
   font-weight: 300 !important;
   font-size: 14px !important;
   line-height: 24px !important;
-
 }
+
 
