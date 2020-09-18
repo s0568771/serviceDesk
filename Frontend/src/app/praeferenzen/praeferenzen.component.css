@@ -1,6 +1,4 @@
-.mat-chip{
-  background-color: palevioletred;
-}
+
 .fave{
   font-size: 18px !important;
   height: 50px;
@@ -9,5 +7,7 @@
 .size{
   height: 100px;
 }
-
+.mat-chip{
+  font-size: 16px;
+}
 
