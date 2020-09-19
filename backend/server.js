@@ -7,6 +7,9 @@ import Mensa from './models/Mensa';
 
 const app = express();
 const router = express.Router();
+// const webpush = require('webpush')
+// const publicKey = "BKLkI8l4j8fAVwP6FrBKGXQtRwncyYNWq-NJyiMyfGHUSe2AEGp1jMLVpJsAdOq1qPP3Go2CuYMGAw7QDLCFi9k"
+// const privateKey = "PmQW0WdgFuwdFBqmzq42Oq6iNYG66v1lvKUYCwP5MBQ"
 
 app.use(cors());
 app.use(bodyParser.json());

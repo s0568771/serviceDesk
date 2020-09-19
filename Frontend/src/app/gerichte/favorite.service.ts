@@ -1,10 +1,16 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoriteService {
+
+  constructor(private http: HttpClient) {
+
+
+  }
 
   favoriteMensa: String[] = [];
   favoriteMensaChanged = new Subject<String[]>();
@@ -28,5 +34,12 @@ export class FavoriteService {
     this.favoriteMensaChanged.next(this.favoriteMensa.slice());
     localStorage.setItem('favorite', JSON.stringify(this.favoriteMensa));
 
+  }
+  addPushSubscriber(sub:any) {
+    return this.http.post('/api/notifications', sub);
+  }
+
+  send() {
+    return this.http.post('/api/newsletter', null);
   }
 }
