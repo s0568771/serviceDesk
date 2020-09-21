@@ -1,6 +1,6 @@
-import {Gericht} from './gericht.model';
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
+import {Gericht} from '../gerichte/gericht.model';
 
 @Injectable()
 export class GerichtService {
@@ -20,4 +20,5 @@ export class GerichtService {
 
 
 }
+
 

@@ -7,18 +7,18 @@
     <mat-expansion-panel-header class="col-lg-6 offset-lg-3">
       <mat-panel-title class="justify-content-start">
         <div *ngIf="this.mensaSelectedName">
-          <mat-icon *ngIf="!this.favoriteMensa.includes(this.mensaSelectedName)"
+          <mat-icon *ngIf="!this.favoriteMensa.hasOwnProperty(this.mensaSelectedID.toString())"
                     (click)="addFavorite(); $event.stopPropagation()" aria-hidden="false" aria-label="Example home icon"
                     color="accent">favorite_border
           </mat-icon>
         </div>
         <div *ngIf="this.mensaSelectedName">
-          <mat-icon *ngIf="this.favoriteMensa.includes(this.mensaSelectedName)"
+          <mat-icon *ngIf="this.favoriteMensa.hasOwnProperty(this.mensaSelectedID)"
                     (click)="deleteFavorite(); $event.stopPropagation()" aria-hidden="false"
                     aria-label="Example home icon" color="accent">favorite
           </mat-icon>
         </div>
-        <span class="title-center"> {{mensaSelectedName}}</span></mat-panel-title>
+        <span class="title-center" *ngIf="this.mensaSelectedName"> {{mensaSelectedName}}</span></mat-panel-title>
     </mat-expansion-panel-header>
   </mat-expansion-panel>
 </div>

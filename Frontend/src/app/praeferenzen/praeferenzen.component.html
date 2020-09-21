@@ -5,8 +5,8 @@
 <div class="container">
   <mat-chip-list>
     <div class="col-12 pt-3">
-      <mat-chip selected color="accent" #chipList *ngFor="let option of favorite" [removable]="true"
-                (removed)="remove(option)">{{option}}
+      <mat-chip selected color="accent" #chipList *ngFor="let option of favorite | keyvalue" [removable]="true"
+                (removed)="remove(option)">{{option.value}}
         <mat-icon matChipRemove class="mx-1">cancel</mat-icon>
       </mat-chip>
     </div>
@@ -27,3 +27,4 @@
 </div>
 
 <button mat-button (click)="subscribeToNotifications()">Notify me!</button>
+<button mat-button (click)="favoriteMe()">Favoritendata me!</button>

@@ -17,9 +17,7 @@ import {LayoutModule} from '@angular/cdk/layout';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {HttpClientModule} from '@angular/common/http';
-import {GerichtService} from './gerichte/gericht.service';
-import { MensenComponent } from './mensen/mensen.component';
-import {MensaService} from './mensen/mensa.service';
+import {MensenComponent } from './mensen/mensen.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -35,6 +33,8 @@ import { PraeferenzenComponent } from './praeferenzen/praeferenzen.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { HilfeComponent } from './hilfe/hilfe.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {GerichtService} from './service/gericht.service';
+import {MensaService} from './service/mensa.service';
 
 @NgModule({
   declarations: [

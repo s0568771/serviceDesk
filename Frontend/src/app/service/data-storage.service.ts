@@ -1,10 +1,10 @@
 import {EventEmitter, Injectable, Output} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpResponse} from '@angular/common/http';
 import {GerichtService} from './gericht.service';
-import {Gericht, GerichteAdapter} from './gericht.model';
 import {catchError, map} from 'rxjs/operators';
-import {BehaviorSubject, Observable, Subject, throwError} from 'rxjs';
+import {Observable, Subject, throwError} from 'rxjs';
 import {Router} from '@angular/router';
+import {Gericht, GerichteAdapter} from '../gerichte/gericht.model';
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService {
@@ -23,7 +23,6 @@ export class DataStorageService {
       catchError(this.errorHandler)
     );
   };
-
 
   errorHandler(error: any) {
     if (error instanceof HttpErrorResponse) {

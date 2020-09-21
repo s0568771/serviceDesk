@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {MensaService} from './mensa.service';
 import {Mensa} from './mensa.model';
-import {DataStorageService} from '../gerichte/data-storage.service';
+import {DataStorageService} from '../service/data-storage.service';
+import {MensaService} from '../service/mensa.service';
 
 
 @Component({
@@ -22,10 +22,13 @@ export class MensenComponent implements OnInit {
   }
 
   fetchMensen() {
-    this.mensenService.getMensen().subscribe((data: Mensa[]) => {
+    this.mensenService.getMensen().
+    subscribe((data: Mensa[]) => {
+      if (data){
       this.mensen = data;
-      console.log(this.mensen);
-    });
+      }
+    }),
+      error => console.log('Mensaerror',error);
   }
 
   onAreaListControlChanged(mensa) {

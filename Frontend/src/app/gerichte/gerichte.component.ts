@@ -1,11 +1,10 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Gericht} from './gericht.model';
-import {GerichtService} from './gericht.service';
-import {DataStorageService} from './data-storage.service';
-import {BehaviorSubject, Subject} from 'rxjs';
 import {Mensa} from '../mensen/mensa.model';
 import {DatePipe} from '@angular/common';
-import {FavoriteService} from './favorite.service';
+import {FavoriteService} from '../service/favorite.service';
+import {DataStorageService} from '../service/data-storage.service';
+import {GerichtService} from '../service/gericht.service';
 
 @Component({
   selector: 'app-gerichte',
@@ -16,9 +15,9 @@ import {FavoriteService} from './favorite.service';
 export class GerichteComponent implements OnInit {
   public gerichte: Gericht[] = [];
   panelOpenState = false;
-  mensaSelectedName: String = 'Hannover, Contine';
+  mensaSelectedName: string = 'Hannover, Contine';
   mensaSelectedID: number = 7;
-  date = new Date();
+  date;
   keineGerichte: boolean;
   favoriteMensa;
 
@@ -30,6 +29,8 @@ export class GerichteComponent implements OnInit {
 
   // this.datePipe.transform(this.date, 'yyyy-MM-dd')
   ngOnInit() {
+    this.date = new Date();
+    this.mensaSelectedID = 7;
     this.fetch(this.mensaSelectedID, this.datePipe.transform(this.date, 'yyyy-MM-dd'));
 
     this.gerichtService.gerichteChanged.subscribe(
@@ -42,9 +43,10 @@ export class GerichteComponent implements OnInit {
           this.keineGerichte = true;
         }
       });
-    this.favoriteMensa = JSON.parse(localStorage.getItem('favorite'));
-  }
+    this.favoriteMensa = this.favoriteService.getFavorites();
 
+
+  }
 
   fetch(id: number, date: string) {
     this.dataStorageService.fetchGerichte(id, date).subscribe(gericht => {
@@ -76,13 +78,13 @@ export class GerichteComponent implements OnInit {
   }
 
   addFavorite() {
-    this.favoriteService.addFavorites(this.mensaSelectedName);
+    this.favoriteService.addFavorites(this.mensaSelectedID, this.mensaSelectedName);
     this.favoriteMensa = this.favoriteService.getFavorites();
   }
 
-  deleteFavorite() {
-    this.favoriteService.deleteFavorite(this.mensaSelectedName);
-    this.favoriteMensa = this.favoriteService.getFavorites();
+   deleteFavorite() {
+     this.favoriteService.deleteFavorite(this.mensaSelectedID);
+     this.favoriteMensa = this.favoriteService.getFavorites();
 
-  }
+   }
 }
