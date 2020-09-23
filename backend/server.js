@@ -49,8 +49,10 @@ router.route('/mensen/:id').get((req, res) => {
     });
 });
 const fakeDatabase = []
-const body = []
-const concat = ""
+let body = []
+let gerichte = ""
+let run = false;
+
 webpush.setVapidDetails('mailto:d.nutzinger@gmail.com', publicKey, privateKey)
 
 app.post('/subscription', (req, res) => {
@@ -60,32 +62,39 @@ app.post('/subscription', (req, res) => {
     res.send("ok!")
 })
 app.post('/fave', (req, res) => {
-
-    body.push(req.body)
-    var firstKey = Object.keys(body[0])[0]
-    console.log(firstKey)
-    console.log(body[0][firstKey])
-    res.send({"ok": "Favoriten!"})
-})
-
-cron.schedule('0 */1 * * * *', () => {
-    const notificationPayload = {
-        notification: {
-            title: 'Deine heutigen Mensamahlzeiten!',
-            body: body[0],
-            icon: 'assets/icons/icon-512x512.png',
-        },
+    console.log(req.body)
+    if (req.body.run) {
+        run = false;
+    } if(!req.body.run) {
+        body.push(req.body)
+        let json = body[0]
+        run = true;
+        for (var key in json) {
+            gerichte = gerichte.concat(key + " ", json[key] + "\n")
+        }
+        res.send({"ok": "Favoriten!"})
     }
-    const promises = []
-    fakeDatabase.forEach(subscription => {
-        promises.push(
-            webpush.sendNotification(
-                subscription,
-                JSON.stringify(notificationPayload)
+})
+cron.schedule('0 */1 * * * *', () => {
+    console.log(run)
+    if (run) {
+        const notificationPayload = {
+            notification: {
+                title: 'Deine heutigen Mensamahlzeiten!',
+                body: gerichte,
+                icon: 'assets/icons/icon-512x512.png',
+            },
+        }
+        const promises = []
+        fakeDatabase.forEach(subscription => {
+            promises.push(
+                webpush.sendNotification(
+                    subscription,
+                    JSON.stringify(notificationPayload)
+                )
             )
-        )
-    })
-
+        })
+    }
 });
 app.use('/', router);
 

@@ -5,7 +5,7 @@
 <div class="container">
   <mat-chip-list>
     <div class="col-12 pt-3">
-      <mat-chip selected color="accent" #chipList *ngFor="let option of favorite | keyvalue" [removable]="true"
+      <mat-chip selected color="primary" #chipList *ngFor="let option of favorite | keyvalue" [removable]="true"
                 (removed)="remove(option)">{{option.value}}
         <mat-icon matChipRemove class="mx-1">cancel</mat-icon>
       </mat-chip>
@@ -17,14 +17,12 @@
   <div class="ml-2 my-auto">Benachrichtungen</div>
   <div class="mr-2 my-auto">
 
-    <mat-slide-toggle [(ngModel)]="isChecked"></mat-slide-toggle>
+    <mat-slide-toggle [checked]="isChecked" (change)="onChange($event)"></mat-slide-toggle>
 
   </div>
 </div>
+<div class="container-fluid mt-2">
+  <mat-icon>info</mat-icon>
+  <p class="sizeFont">Täglich um 9 Uhr bekommst du eine Benachrichtung zu deiner Lieblingsmensa!</p></div>
 
-<div class="d-flex mx-5 mt-3"><mat-icon class="mr-2">info</mat-icon><p class="size"><b>Du bekommst jeden Tag eine Benachrichtiung mit den
-  aktuellen Mahlzeiten für deine Mensafavoriten!</b></p>
-</div>
 
-<button mat-button (click)="subscribeToNotifications()">Notify me!</button>
-<button mat-button (click)="favoriteMe()">Favoritendata me!</button>

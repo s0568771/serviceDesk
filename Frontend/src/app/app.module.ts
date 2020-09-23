@@ -35,6 +35,10 @@ import { HilfeComponent } from './hilfe/hilfe.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {GerichtService} from './service/gericht.service';
 import {MensaService} from './service/mensa.service';
+import { DirectionComponent } from './direction/direction.component';
+import {AgmCoreModule} from '@agm/core';
+import {AgmDirectionModule} from 'agm-direction';
+import {MatRippleModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -47,32 +51,37 @@ import {MensaService} from './service/mensa.service';
     PraeferenzenComponent,
     ImpressumComponent,
     HilfeComponent,
+    DirectionComponent,
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatCardModule,
-        MatButtonModule,
-        MatDividerModule,
-        AppRoutingModule,
-        LayoutModule,
-        MatSidenavModule,
-        MatListModule,
-        HttpClientModule,
-        MatTableModule,
-        MatExpansionModule,
-        MatFormFieldModule,
-        MatTabsModule,
-        MatTooltipModule,
-        MatProgressBarModule,
-        MatChipsModule,
-        FormsModule,
-        ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
-        MatSlideToggleModule,
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    MatButtonModule,
+    MatDividerModule,
+    AppRoutingModule,
+    LayoutModule,
+    MatSidenavModule,
+    MatListModule,
+    HttpClientModule,
+    MatTableModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatTabsModule,
+    MatTooltipModule,
+    MatProgressBarModule,
+    MatChipsModule,
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    MatSlideToggleModule,
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyAtAAHUztBoOPGGXqxCY1j7opoargbNpf8'}),
+    AgmCoreModule,
+    AgmDirectionModule,
+    MatRippleModule
 
-    ],
+  ],
   providers: [GerichtService, MensaService, DatePipe],
   bootstrap: [AppComponent]
 })

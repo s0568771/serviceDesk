@@ -9,16 +9,16 @@
     <mat-toolbar class="mensarino-font mb-5"><img src="assets/icons/icon-72x72.png" class="logo-size-top mr-4">Mensarino
     </mat-toolbar>
     <mat-nav-list>
-      <a routerLink="/gerichte" mat-list-item>Speiseplan</a>
-      <a routerLink="/praeferenzen"mat-list-item>Präferenzen</a>
-      <a routerLink="/about" mat-list-item>Über Uns</a>
-      <a routerLink="/impressum"mat-list-item>Impressum</a>
-      <a routerLink="/hilfe"mat-list-item>Hilfe</a>
+      <a routerLink="/gerichte" mat-list-item (click)="setTitle( 'Speiseplan' )">Speiseplan</a>
+      <a routerLink="/praeferenzen" mat-list-item (click)="setTitle( 'Präferenzen' )">Präferenzen </a>
+      <a routerLink="/about" mat-list-item (click)="setTitle( 'About' )">Über Uns</a>
+      <a routerLink="/impressum" mat-list-item (click)="setTitle( 'Impressum' )">Impressum</a>
+      <a routerLink="/hilfe" mat-list-item (click)="setTitle( 'Hilfe' )">Hilfe</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <div class="logo">
+      <div>
         <button
           type="button"
           aria-label="Toggle sidenav"
@@ -28,12 +28,17 @@
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
       </div>
+      <span class="favor my-auto ml-2">{{title}}</span>
+      <div class="spacer"><img src="assets/icons/icon-72x72.png" class="logo2 my-1"></div>
+      <div class="ml-auto"  routerLink="/direction">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button>
+          <mat-icon class="icon-s"> directions</mat-icon>
+        </button>
+      </div>
 
-      <span class="favor">Speiseplan</span>
-      <div class="mx-auto">
-        <img src="assets/icons/icon-72x72.png" class="logo-size"></div>
-      <span class="favo">Favoriten</span>
-      <mat-icon aria-label="Side nav toggle icon" class="ml-2">search</mat-icon>
 
       <span *ngIf="!(isHandset$ | async)">
           <a routerLink="/gerichte" routerLinkActive="active_route" class="px-4">Speiseplan</a>

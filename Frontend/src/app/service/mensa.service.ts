@@ -15,5 +15,9 @@ export class MensaService {
   getMensen() {
     return this.http.get(this.apiUrl + '/mensen');
   }
+  getSingleMensa(id: number){
+    return this.http.get("https://openmensa.org/api/v2/canteens/"+id)
+  }
+
 
 }

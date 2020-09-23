@@ -7,15 +7,17 @@ import {MensenComponent} from './mensen/mensen.component';
 import {PraeferenzenComponent} from './praeferenzen/praeferenzen.component';
 import {ImpressumComponent} from './impressum/impressum.component';
 import {HilfeComponent} from './hilfe/hilfe.component';
+import {DirectionComponent} from './direction/direction.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/gerichte', pathMatch: 'full'},
-  {path: 'gerichte', component: GerichteComponent},
-  {path: 'about', component: AboutComponent},
-  {path: 'mensen', component: MensenComponent},
-  {path: 'praeferenzen', component: PraeferenzenComponent},
+  {path: 'gerichte', component: GerichteComponent, data: {title: 'About Us'}},
+  {path: 'about', component: AboutComponent, data: {title: 'About Us'}},
+  {path: 'mensen', component: MensenComponent ,data: {title: 'About Us'}},
+  {path: 'praeferenzen', component: PraeferenzenComponent, data: {title: 'About Us'}},
   {path: 'impressum', component: ImpressumComponent},
-  {path: 'hilfe', component: HilfeComponent}
+  {path: 'hilfe', component: HilfeComponent},
+  {path: "direction",component: DirectionComponent,data: {title: 'Wegweiser'}}
 ];
 
 @NgModule({

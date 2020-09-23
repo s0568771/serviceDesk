@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
 import {map, shareReplay} from 'rxjs/operators';
-import {ActivatedRoute} from '@angular/router';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-main-nav',
@@ -17,12 +17,16 @@ export class MainNavComponent {
       shareReplay()
     );
   bankName;
+  title = 'Speiseplan';
 
-  constructor(private breakpointObserver: BreakpointObserver) {
-  }
+  constructor(private breakpointObserver: BreakpointObserver,
+              private titleService: Title) {}
 
   ngOnInit() {
-
   }
-
+  setTitle(title: string) {
+    this.title = title;
+  }
 }
+
+

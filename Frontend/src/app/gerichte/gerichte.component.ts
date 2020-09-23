@@ -1,6 +1,5 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Gericht} from './gericht.model';
-import {Mensa} from '../mensen/mensa.model';
 import {DatePipe} from '@angular/common';
 import {FavoriteService} from '../service/favorite.service';
 import {DataStorageService} from '../service/data-storage.service';
@@ -30,7 +29,8 @@ export class GerichteComponent implements OnInit {
   // this.datePipe.transform(this.date, 'yyyy-MM-dd')
   ngOnInit() {
     this.date = new Date();
-    this.mensaSelectedID = 7;
+    this.mensaSelectedID = parseInt(localStorage.getItem("mensaSelectedId"));
+    this.mensaSelectedName = localStorage.getItem("mensaSelected");
     this.fetch(this.mensaSelectedID, this.datePipe.transform(this.date, 'yyyy-MM-dd'));
 
     this.gerichtService.gerichteChanged.subscribe(
@@ -73,6 +73,8 @@ export class GerichteComponent implements OnInit {
     this.mensaSelectedName = $event.valueOf().name;
     this.mensaSelectedID = $event.valueOf().id;
     this.fetch(this.mensaSelectedID, this.datePipe.transform(this.date, 'yyyy-MM-dd'));
+    localStorage.setItem("mensaSelected",this.mensaSelectedName )
+    localStorage.setItem("mensaSelectedId",this.mensaSelectedID.toString() )
 
     // neue API Anfrage, wenn eine Mensa ausgewählt wurde.
   }
@@ -87,4 +89,6 @@ export class GerichteComponent implements OnInit {
      this.favoriteMensa = this.favoriteService.getFavorites();
 
    }
+
+
 }

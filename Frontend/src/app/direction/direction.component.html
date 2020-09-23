@@ -1,0 +1,31 @@
+<mat-toolbar>
+  <mat-toolbar-row class="text-center">
+    <span class="mx-auto mt-2">Wo möchtest du essen?</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-expansion-panel (opened)="panelOpenState = true"
+                     (closed)="panelOpenState = false">
+  <app-mensen (mensaSelected)="useMensaSelected($event)"></app-mensen>
+  <mat-expansion-panel-header class="header">
+    <mat-panel-title class="justify-content-center">
+      {{mensaSelectedName}}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+</mat-expansion-panel>
+<div *ngIf="suche">
+  <agm-map [(zoom)]="zoom" [latitude]="lat" [longitude]="lng">
+    <agm-direction *ngIf="origin" [origin]="origin" [destination]="destination"></agm-direction>
+  </agm-map>
+</div>
+<div class="container-fluid text-center mt-3">
+
+  <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon" (click)="findMe()"
+          class="mt-5" #tooltip="matTooltip"
+          matTooltip="Info about the action"
+          matTooltipPosition="right">
+    <mat-icon>location_on</mat-icon>
+  </button>
+  <p>Suche den Weg direkt <br> von deinem Standort</p>
+</div>
+
+

@@ -1,7 +1,7 @@
 export interface Mensa {
-  id: Number;
-  name: String;
-  city: String;
-  address: String;
-  coordinates: Number[];
+  id: number;
+  name: string;
+  city: string;
+  address: string;
+  coordinates: number[];
 }

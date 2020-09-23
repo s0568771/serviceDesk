@@ -5,20 +5,20 @@
 .sidenav {
   width: 200px;
 }
-.favor{
+
+.favor {
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
   font-size: 17px;
 }
-.mensarino-font{
+
+.mensarino-font {
   font-size: 24px !important;
   font-style: normal !important;
 }
-.logo-size{
-  width: 70%;
-}
-.logo-size-top{
+
+.logo-size-top {
   width: 20%;
 }
 
@@ -30,14 +30,25 @@
   position: sticky;
   top: 0;
   z-index: 5;
+  height: 60px !important;
 }
-
+.icon-s.material-icons{
+  font-size: 32px !important;
+  width: 32px !important;
+}
 .hidden {
   display: none;
 }
 
 .spacer {
-  flex: 1 1 auto;
+  position: absolute;
+  left: 50%;
+  transform: translatex(-50%);
+  margin-left: 13px;
+}
+
+.logo2 {
+  width: 80%;
 }
 
 mat-toolbar a {
