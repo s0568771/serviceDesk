@@ -14,8 +14,7 @@ Getting started:
 
 Tetsting Service Worker und Push Notifications:
 1. Über cli in /frontend navigieren -> "ng build --prod" ausführen.
-2. http-server
-2. cli in dist/mensa navigieren -> "npm install -g angular-http-server"
+2. "npm install -g angular-http-server"
 3. über cli in dist/mensa navigieren. "http-server" ausführen.
 4. Über localhost:8080 testen.
 
