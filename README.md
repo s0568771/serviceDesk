@@ -11,4 +11,8 @@ Getting started:
 7. Über cli in /backend navigieren und "npm run dev" ausführen. Backend sollte nun auf port 4000 laufen.
 8. Frontend über die IDE starten. Alternativ zu /frontend navigieren und "ng serve" ausführen.
 
+Tetsting Service Worker und Push Notifications:
+1. Über cli in /frontend navigieren -> ng build --prod
+2. localhost
+
 
