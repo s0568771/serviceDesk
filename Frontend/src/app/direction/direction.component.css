@@ -13,7 +13,11 @@ agm-Map{
   background-size: cover;
   margin-top: -2px;
 }
+.alert{
+  width: 45%;
+  margin: auto;
 
+}
 .mat-expansion-panel-header{
   position: fixed;
   height: 64px !important;
@@ -25,6 +29,7 @@ agm-Map{
   width: 101%;
 
 }
+
 .header {
   background-color: #6200ea !important;
   color: white;

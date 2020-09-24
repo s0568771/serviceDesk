@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Adapter} from './adapter';
 
 export class Gericht {
-
+  //Model for Gericht
   constructor(
     public id: number,
     public name: string,
@@ -31,6 +31,7 @@ export class Preis {
 export class GerichteAdapter implements Adapter<Gericht> {
   //https://dev.to/florimondmanca/consuming-apis-in-angular--the-model-adapter-pattern-3fk5
   //Adapter Pattern
+  //Transfrom JSON Data to Model (Gericht)
   adapt(item: any): Gericht {
 
     var preis = item.prices;

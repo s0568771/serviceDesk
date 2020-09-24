@@ -14,8 +14,8 @@ export class FavoriteService {
 
   }
 
-  favoriteMensa = {};
-  favoriteMensaChanged = new Subject();
+  private favoriteMensa = {};
+  public favoriteMensaChanged = new Subject();
 
   getFavorites() {
     this.favoriteMensa = JSON.parse(localStorage.getItem('favorite'));
@@ -44,7 +44,7 @@ export class FavoriteService {
     localStorage.setItem('favorite', JSON.stringify(this.favoriteMensa));
 
   }
-
+  //Post Push Subscriber to the backend.
   addPushSubscriber(subscription: PushSubscription) {
     return this.http.post('http://localhost:4000/subscription', subscription);
   }

@@ -19,13 +19,13 @@
 </div>
 <div class="container-fluid text-center mt-3">
 
-  <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon" (click)="findMe()"
-          class="mt-5" #tooltip="matTooltip"
-          matTooltip="Info about the action"
-          matTooltipPosition="right">
+  <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon" (click)="findUser()"
+          class="mt-5">
     <mat-icon>location_on</mat-icon>
   </button>
-  <p>Suche den Weg direkt <br> von deinem Standort</p>
+  <div class="alert alert-secondary mt-2" role="alert">
+    Suche den Weg von deinem Standort
+  </div>
 </div>
 
 

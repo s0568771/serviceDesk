@@ -39,6 +39,8 @@ import { DirectionComponent } from './direction/direction.component';
 import {AgmCoreModule} from '@agm/core';
 import {AgmDirectionModule} from 'agm-direction';
 import {MatRippleModule} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 @NgModule({
   declarations: [
@@ -79,7 +81,8 @@ import {MatRippleModule} from '@angular/material/core';
     AgmCoreModule.forRoot({apiKey: 'AIzaSyAtAAHUztBoOPGGXqxCY1j7opoargbNpf8'}),
     AgmCoreModule,
     AgmDirectionModule,
-    MatRippleModule
+    MatRippleModule,
+    MatDatepickerModule
 
   ],
   providers: [GerichtService, MensaService, DatePipe],

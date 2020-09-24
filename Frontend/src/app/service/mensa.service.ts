@@ -11,10 +11,11 @@ export class MensaService {
   }
 
   apiUrl = environment.apiUrl;
-
+  //Get List of all mensen
   getMensen() {
     return this.http.get(this.apiUrl + '/mensen');
   }
+  //Get single mensa
   getSingleMensa(id: number){
     return this.http.get("https://openmensa.org/api/v2/canteens/"+id)
   }

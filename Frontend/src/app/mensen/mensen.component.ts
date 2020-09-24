@@ -10,9 +10,10 @@ import {MensaService} from '../service/mensa.service';
   styleUrls: ['./mensen.component.css']
 })
 export class MensenComponent implements OnInit {
-  mensen: Mensa[] = [];
+  public mensen: Mensa[] = [];
+  //Pass slected Mensa to Gerichte Component
   @Output() mensaSelected: EventEmitter<any> = new EventEmitter<any>();
-  mensa;
+  private mensa: Mensa;
 
   constructor(private mensenService: MensaService, private dataStorageService: DataStorageService) {
   }
@@ -21,17 +22,17 @@ export class MensenComponent implements OnInit {
     this.fetchMensen();
   }
 
+  //Fetch Mensa from mensaService. Result is Mapped to Model (Mensa)
   fetchMensen() {
     this.mensenService.getMensen().
     subscribe((data: Mensa[]) => {
       if (data){
       this.mensen = data;
       }
-    }),
-      error => console.log('Mensaerror',error);
+    }), error => console.log('Mensaerror',error);
   }
-
-  onAreaListControlChanged(mensa) {
+  //Emit when mensa is changed.
+  onMensaSelectedChange(mensa) {
     this.mensa = mensa;
     this.mensaSelected.emit(this.mensa);
 

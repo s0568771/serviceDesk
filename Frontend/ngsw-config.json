@@ -37,6 +37,17 @@
         "maxAge": "6h",
         "strategy": "performance"
       }
+    },
+    {
+      "name": "dynamicMeals",
+      "urls": [
+        "https://openmensa.org/api/v2/canteens/**/days/**/meals"
+      ],
+      "cacheConfig": {
+        "maxSize": 60,
+        "maxAge": "6h",
+        "strategy": "performance"
+      }
     }
   ]
 }

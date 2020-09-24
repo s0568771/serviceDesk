@@ -11,21 +11,25 @@ export class GerichteItemComponent implements OnInit {
 
   mehrInfo = false;
   @Input() gerichtItem: Gericht;
-
+  info: string;
 
   constructor() {
   }
 
   ngOnInit(): void {
     this.mehrInfo = false;
+    this.info = 'Mehr Infos';
   }
 
   mehrInfos() {
-    this.mehrInfo = true;
+    if (this.mehrInfo) {
+      this.mehrInfo = false;
+      this.info = 'Mehr Infos';
+    } else {
+      this.mehrInfo = true;
+      this.info = 'Weniger Infos';
+    }
   }
 
-  mehrInfosClear() {
-    this.mehrInfo = false;
-  }
 
 }

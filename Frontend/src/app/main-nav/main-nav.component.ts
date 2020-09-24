@@ -10,20 +10,24 @@ import {Title} from '@angular/platform-browser';
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent {
+  //show top left on navigagiton bar
+  public title: string = 'Speiseplan';
 
+  //Transform Navigation to mobile
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
-  bankName;
-  title = 'Speiseplan';
+
+
 
   constructor(private breakpointObserver: BreakpointObserver,
               private titleService: Title) {}
 
   ngOnInit() {
   }
+  //Set current title for page
   setTitle(title: string) {
     this.title = title;
   }

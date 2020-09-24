@@ -15,6 +15,7 @@ const privateKey = "PmQW0WdgFuwdFBqmzq42Oq6iNYG66v1lvKUYCwP5MBQ"
 app.use(cors());
 app.use(bodyParser.json());
 
+//Connect with MongoDB
 const mongo = mongoose.connect('mongodb://localhost:27017/mensen', {useUnifiedTopology: true, useNewUrlParser: true});
 mongo.then(() => {
     console.log('connected');
@@ -29,7 +30,7 @@ connection.once('open', () => {
 
 });
 
-
+//Return Mensalist from MongoDB
 router.route('/mensen').get((req, res) => {
     Mensa.find((err, mensen) => {
         if (err) {
@@ -39,7 +40,7 @@ router.route('/mensen').get((req, res) => {
         }
     });
 });
-
+//Return Single Mensa
 router.route('/mensen/:id').get((req, res) => {
     Mensa.findById(req.params.id, (err, mensa) => {
         if (err)
@@ -48,20 +49,24 @@ router.route('/mensen/:id').get((req, res) => {
             res.json(mensa);
     });
 });
+//safe Push-Subscriptions
 const fakeDatabase = []
 let body = []
+//body of notification
 let gerichte = ""
+//boolean for running notifications
 let run = false;
 
 webpush.setVapidDetails('mailto:d.nutzinger@gmail.com', publicKey, privateKey)
 
+//add subscription to array
 app.post('/subscription', (req, res) => {
     const subscription = req.body
     fakeDatabase.push(subscription)
-    console.log(fakeDatabase)
     res.send("ok!")
 })
-app.post('/fave', (req, res) => {
+//Check if user wants to run notifications. If so safe meal data for notification.
+app.post('/submeals', (req, res) => {
     console.log(req.body)
     if (req.body.run) {
         run = false;
@@ -75,7 +80,9 @@ app.post('/fave', (req, res) => {
         res.send({"ok": "Favoriten!"})
     }
 })
-cron.schedule('0 */1 * * * *', () => {
+//cron-job for push notifications. For demo every 3 min.
+// Change to 9am daily for prod. mode
+cron.schedule('0 */3 * * * *', () => {
     console.log(run)
     if (run) {
         const notificationPayload = {

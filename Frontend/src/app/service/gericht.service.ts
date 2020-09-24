@@ -7,7 +7,7 @@ export class GerichtService {
 
   private gerichte: Gericht[] = [];
 
-  gerichteChanged = new Subject<Gericht[]>();
+  public gerichteChanged = new Subject<Gericht[]>();
 
   getGerichte() {
     return this.gerichte.slice();

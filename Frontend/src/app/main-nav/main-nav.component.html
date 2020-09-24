@@ -11,7 +11,7 @@
     <mat-nav-list>
       <a routerLink="/gerichte" mat-list-item (click)="setTitle( 'Speiseplan' )">Speiseplan</a>
       <a routerLink="/praeferenzen" mat-list-item (click)="setTitle( 'Präferenzen' )">Präferenzen </a>
-      <a routerLink="/about" mat-list-item (click)="setTitle( 'About' )">Über Uns</a>
+      <a routerLink="/about" mat-list-item (click)="setTitle( 'Über uns' )">Über Uns</a>
       <a routerLink="/impressum" mat-list-item (click)="setTitle( 'Impressum' )">Impressum</a>
       <a routerLink="/hilfe" mat-list-item (click)="setTitle( 'Hilfe' )">Hilfe</a>
     </mat-nav-list>
@@ -29,8 +29,8 @@
         </button>
       </div>
       <span class="favor my-auto ml-2">{{title}}</span>
-      <div class="spacer"><img src="assets/icons/icon-72x72.png" class="logo2 my-1"></div>
-      <div class="ml-auto"  routerLink="/direction">
+      <div class="spacer"><a mat-button routerLink="/gerichte"><img src="assets/icons/icon-72x72.png" class="logo2 my-1"(click)="setTitle( 'Speiseplan' )"></a></div>
+      <div class="ml-auto"  routerLink="/direction" (click)="setTitle( 'Wegweiser' )">
         <button
           type="button"
           aria-label="Toggle sidenav"

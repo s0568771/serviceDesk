@@ -27,7 +27,8 @@
     <button class="center" mat-icon-button aria-label="chevron_left">
       <mat-icon (click)="dateBack()">chevron_left</mat-icon>
     </button>
-    <span class="title-center">
+
+  <span class="title-center">
 {{date.toLocaleString('de', {weekday: 'long'}) + ' - '}}{{date | date:'dd.MM.yyyy'}} </span>
     <button class="center" mat-icon-button aria-label="chevron_right">
       <mat-icon (click)="dateForward()">chevron_right</mat-icon>
@@ -38,7 +39,7 @@
   <div *ngIf="!panelOpenState" class="h-100 image-container">
     <img class="icon-size mt-5" src="assets/Hilfe_gif.gif">
   </div>
-  <div class="image-container mt-3"> Hoppla! Kein Essen verfügbar.</div>
+  <div class="image-container mt-3"> Hoppla! Leider kein Essen verfügbar.</div>
 </div>
 <div class="col-lg-6 offset-lg-3 px-0">
   <div *ngIf="!keineGerichte">

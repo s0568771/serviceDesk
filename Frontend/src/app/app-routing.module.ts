@@ -11,12 +11,12 @@ import {DirectionComponent} from './direction/direction.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/gerichte', pathMatch: 'full'},
-  {path: 'gerichte', component: GerichteComponent, data: {title: 'About Us'}},
-  {path: 'about', component: AboutComponent, data: {title: 'About Us'}},
-  {path: 'mensen', component: MensenComponent ,data: {title: 'About Us'}},
+  {path: 'gerichte', component: GerichteComponent, data: {title: 'Speiseplan'}},
+  {path: 'about', component: AboutComponent, data: {title: 'Über uns'}},
+  {path: 'mensen', component: MensenComponent ,data: {title: 'Mensen'}},
   {path: 'praeferenzen', component: PraeferenzenComponent, data: {title: 'About Us'}},
-  {path: 'impressum', component: ImpressumComponent},
-  {path: 'hilfe', component: HilfeComponent},
+  {path: 'impressum', component: ImpressumComponent, data: {title: 'Impressum'}},
+  {path: 'hilfe', component: HilfeComponent, data: {title: 'Hilfe'}},
   {path: "direction",component: DirectionComponent,data: {title: 'Wegweiser'}}
 ];
 
