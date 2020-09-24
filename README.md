@@ -3,7 +3,7 @@ Willkommen zu Mensarino. Deine Mensapp!
 Getting started:
 
 1. MongoDB installieren. https://www.mongodb.com/try/download/community 
-2. mensen DB erstellen und mensen Collection erstellen. 
+2. mensen DB (Create Database) erstellen und mensen Collection erstellen. 
 3. Collection mit Daten befüllen von https://openmensa.org/api/v2/canteens (JSON)
 4. MongoDB sollte auf Port localhost:27017 laufen.
 5. Projekt von diesem Respository in die IDE der eigenen Wahl clonen. 
