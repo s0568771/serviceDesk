@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif
+}
+
+button:focus, button:active:focus, button.active:focus {
+  outline: none !important;
+  outline-style: none !important;
+
+}
+
+.mat-expansion-panel-header-description, .mat-expansion-indicator::after {
+  color: white !important;
+  margin-right: 8px;
+}
+
+.mat-toolbar {
+  font-family: Roboto;
+  font-style: normal !important;
+  font-weight: 300 !important;
+  font-size: 14px !important;
+  line-height: 24px !important;
+}
+
+
