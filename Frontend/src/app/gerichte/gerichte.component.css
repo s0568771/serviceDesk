@@ -1,0 +1,113 @@
+
+.title-center {
+  flex: 1 1 auto;
+  text-align: center;
+  font-size: 15px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 300;
+  color: white;
+  justify-content: center !important;
+  margin: auto;
+}
+.center{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.mat-button {
+  outline: none;
+  border: 0;
+}
+
+.mat-expansion-panel {
+  position: sticky;
+  z-index: 1;
+}
+
+.mat-expansion-panel-header {
+  position: fixed;
+  z-index: 5;
+  height: 64px !important;
+  background-color: #6200ea !important;
+  justify-content: center;
+  width: 100%;
+}
+
+.mat-expansion-indicator {
+  color: white;
+}
+
+.mensen-container {
+  padding-bottom: 63px;
+  margin-top: -5px;
+
+}
+
+.icon-size {
+  width: 60%;
+  margin: auto;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.center-icon {
+  margin-top: auto;
+}
+
+.start {
+  align-content: start !important;
+}
+
+.mat-toolbar {
+  position: fixed;
+  z-index: 5;
+}
+
+.example-card {
+  z-index: 1;
+}
+
+.marginGerichte {
+  margin-bottom: 90px;
+}
+
+.mensen {
+  margin-top: -5px;
+  background-color: #6200ea;
+  height: 64px;
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+  position: fixed;
+  z-index: 20;
+  color: white;
+}
+
+.button {
+  color: white;
+}
+
+.mat-panel-description {
+  height: auto;
+}
+
+.mat-expansion-panel-header-title {
+  color: white;
+  font-size: 20px;
+
+}
+
+.mat-expansion-panel-header-description, .mat-expansion-indicator::after {
+  color: white !important;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/manifest.webmanifest",
+          "/*.css",
+          "/*.js"
+        ]
+      }
+    }, {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**",
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "Mensen",
+      "urls": [
+        "http://localhost:4000/mensen"
+      ],
+      "cacheConfig": {
+        "maxSize": 60,
+        "maxAge": "6h",
+        "strategy": "performance"
+      }
+    },
+    {
+      "name": "dynamicMeals",
+      "urls": [
+        "https://openmensa.org/api/v2/canteens/**/days/**/meals"
+      ],
+      "cacheConfig": {
+        "maxSize": 60,
+        "maxAge": "6h",
+        "strategy": "performance"
+      }
+    }
+  ]
+}
+
