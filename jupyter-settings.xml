@@ -1,0 +1,20 @@
+<application>
+  <component name="JupyterPersistentConnectionParameters">
+    <option name="moduleParameters">
+      <map>
+        <entry key="$USER_HOME$/IdeaProjects/USWS/project/project.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="/usr/bin/python3" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="JupyterSettings">
+    <option name="autoscrollFromSource" value="false" />
+    <option name="autoscrollToSource" value="false" />
+  </component>
+</application>
