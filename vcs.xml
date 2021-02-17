@@ -6,9 +6,13 @@
           <option name="url" value="https://github.com/HTW-PMA/mensa-app-team-10.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/HTW-PMA/mensa-app-team10-new.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="$USER_HOME$/IdeaProjects/pmd" />
+    <option name="cloneParentDir" value="$USER_HOME$/IdeaProjects/pmd/docker" />
   </component>
   <component name="Vcs.Log.App.Settings">
     <option name="COLUMN_ORDER">
