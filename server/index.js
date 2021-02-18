@@ -11,8 +11,6 @@ app.once('open', function() {
     console.log("Connection Successful!");
 });
 
-
-
 // simple route
 app.get("/mensen/:id/", (req, res) => {
     res.json({ message: "Welcome to Appeteria application." });
