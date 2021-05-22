@@ -1,3 +1,5 @@
 *.class
 *.log
+*.class
+*.log
 /backend/node_modules/
