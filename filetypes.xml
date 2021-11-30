@@ -1,13 +1,15 @@
 <application>
-  <component name="FileTypeManager" version="17">
+  <component name="FileTypeManager" version="18">
     <extensionMap>
+      <mapping pattern=".keep" type="PLAIN_TEXT" />
+      <mapping pattern=".DS_Store" type="PLAIN_TEXT" />
       <mapping pattern="MovieDao.scala" type="PLAIN_TEXT" />
       <mapping pattern="ENABLE_INSTALL_TOOL" type="PLAIN_TEXT" />
-      <mapping pattern=".DS_Store" type="PLAIN_TEXT" />
-      <mapping pattern=".keep" type="PLAIN_TEXT" />
       <mapping pattern="firebase-messaging-sw.js" type="PLAIN_TEXT" />
       <mapping ext="typoscript" type="PLAIN_TEXT" />
       <mapping ext="tsconfig" type="PLAIN_TEXT" />
+      <removed_mapping ext="apk" approved="true" type="ARCHIVE" />
+      <removed_mapping ext="psd" approved="true" type="Image" />
     </extensionMap>
   </component>
 </application>
