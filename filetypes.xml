@@ -8,6 +8,7 @@
       <mapping pattern=".DS_Store" type="PLAIN_TEXT" />
       <mapping pattern="MovieDao.scala" type="PLAIN_TEXT" />
       <mapping pattern="ENABLE_INSTALL_TOOL" type="PLAIN_TEXT" />
+      <mapping pattern=".htaccess" type="PLAIN_TEXT" />
       <mapping pattern="firebase-messaging-sw.js" type="PLAIN_TEXT" />
       <mapping ext="typoscript" type="PLAIN_TEXT" />
       <mapping ext="xlf" type="PLAIN_TEXT" />
